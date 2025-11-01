@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo img {
+    height: 100px;
+}
+
+/* Clock */
+.timer {
+    font-size: 1.5em;
+}
+
+/* Ticker styling */
+.ticker {
+    background-color: #ffcc00;
+    color: #000;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.ticker-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: tickerMove 15s linear infinite;
+}
+
+@keyframes tickerMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.upload-form {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 60%;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.upload-form input[type="file"] {
+    margin: 1rem 0;
+    padding: 0.5rem;
+}
+
+.upload-form button {
+    background: #0078D7;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-form button:hover {
+    background: #005fa3;
+}
+
+.table-container {
+    width: 80%;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th, .data-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+}
+
+.data-table th {
+    background: #0078D7;
+    color: white;
+}
+
+.export-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    background: #28a745;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.export-btn:hover {
+    background: #1e7e34;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}

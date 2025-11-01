@@ -2,9 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI in Road Safety - Ministry of Road Transport & Highways (MoRTH)">
+    <title>AI in Road Safety - MoRTH</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <script>
+        // 🕒 Real-time Clock
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('clock').textContent = timeString;
+        }
+        setInterval(updateClock, 1000);
+        window.onload = updateClock;
+    </script>
 </head>
 <body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+        </div>
+        <div class="timer">
+            <span id="clock"></span>
+        </div>
+    </header>
 
+    <!-- Ticker -->
+    <div class="ticker">
+        <div class="ticker-text">
+            🤖 Smarter Roads. Safer Journeys. | 🚦 AI Making Every Drive Safer | 🛡️ Safety Through Innovation
+        </div>
+    </div>
+  <form class="upload-form" action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload a PDF File:</label>
+            <input type="file" id="file" name="file" accept=".pdf" required>
+            <button type="submit">Read PDF</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if table_data %}
+        <div class="table-container">
+            <h2>📊 Extracted Text</h2>
+            {{ table_data | safe }}
+            <a href="/export" class="export-btn">📤 Export Report as PDF</a>
+        </div>
+        {% endif %}
 </body>
 </html>
